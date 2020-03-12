@@ -1,30 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 import UserInput from './UserInput';
 import UserOutput from './UserOutput';
 
 
-class App extends Component {
+const App = (props) => {
 
-state = {
-  userName: 'Akki'
-};
+ const [nameState, setNameState] = useState ({
+  userName: 'afa'
+ });
 
-userNameChangeHandler = (event) => {
-  this.setState ({userName: event.target.value  });
+const userNameChangeHandler = () => {
+  setNameState ({userName: 'Axaty'  });
 }
-  render() {
+ 
     return (
       <div className="App">
-        <UserInput changed = {this.userNameChangeHandler} userName= {this.state.userName}/>
-        <UserOutput userName= {this.state.userName}/>
-        <UserOutput userName = {this.state.userName}/> 
-        <UserOutput userName = {this.state.userName}/>
-      </div>
+        <button onClick = {userNameChangeHandler}>Name change</button>
+        <UserInput changed= {nameState.userName} />
+        <p userName= {nameState.userName}/>
+        <UserOutput userName= {nameState.userName}/>
+        <UserOutput userName = {nameState.userName}/> 
+        <UserOutput userName = {nameState.userName}/>
+      </div>  
     );
     }
-  }
+ 
   
 
 
